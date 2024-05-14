@@ -1,4 +1,6 @@
 from math import *
+import matplotlib.pyplot as plt
+
 #méthode de runge kutta mk4 :
 
 
@@ -15,25 +17,37 @@ l = 1 # m
 #choix du pas de calcul :
 dt = 0.02 # secondes
 
+temps = [float(i) *0.02 for i in range(1, 101)]
+liste_theta = [theta0]
+liste_omega = [omega0]
+
 # calcul des k et j:
+for ii in range(100):
+    k1 = omega0*dt 
+    j1 = -(g/l)*sin(theta0)*dt
 
-k1 = omega0*dt 
-j1 = -(g/l)*sin(theta0)*dt
+    k2 = (omega0 + j1/2)*dt 
+    j2 = -(g/l)*sin(theta0 + k1/2)*dt
 
-k2 = (omega0 + j1/2)*dt 
-j2 = -(g/l)*sin(theta0 + k1/2)*dt
+    k3 = (omega0 + j2/2)*dt
+    j3 = -(g/l)*sin(theta0 + k2/2)*dt
 
-k3 = (omega0 + j2/2)*dt
-j3 = -(g/l)*sin(theta0 + k2/2)*dt
+    k4 = (omega0 + j3)*dt
+    j4 = -(g/l)*sin(theta0 + k3)*dt
 
-k4 = (omega0 + j3)*dt
-j4 = -(g/l)*sin(theta0 + k3)*dt
+    # calcul de theta1 et omega1 : 
 
-# calcul de theta1 et omega1 : 
+    theta1 = theta0 + 1/6*(k1 + 2*k2 + 2*k3 + k4)
+    omega1 = omega0 + 1/6*(j1 + 2*j2 + 2*j3 + j4)
 
-theta1 = theta0 + 1/6*(k1 + 2*k2 + 2*k3 + k4)
-omega1 = omega0 + 1/6*(j1 + 2*j2 + 2*j3 + j4)
+    liste_theta.append(theta1)
+    liste_omega.append(omega0)
 
-print(k1,k2,k3,k4)
-print(j1,j2,j3,j4)
-print(theta1,omega1)
+    theta0 = theta1
+    omega0 = omega1
+
+plt.plot(liste_theta,label = "courbe position")
+plt.plot(liste_omega, label = "courbe vitesse")
+plt.legend()
+plt.show()
+
