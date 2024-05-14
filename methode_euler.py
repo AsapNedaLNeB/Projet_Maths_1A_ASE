@@ -19,4 +19,4 @@ Theta[0] = Theta_init
 Theta_point[0] = Theta_point_init
 
 # Resolution de (1) par la méthode d'Euler :
-
+#a
