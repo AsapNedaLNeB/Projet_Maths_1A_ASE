@@ -10,6 +10,7 @@ On peut poser dy(x) = F(y(x),x) = -k*y(x)
 
 import numpy as np
 import matplotlib.pyplot as plt
+
 # Constantes :
  
 k = 2
