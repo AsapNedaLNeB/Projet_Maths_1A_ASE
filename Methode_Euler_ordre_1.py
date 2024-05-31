@@ -1,3 +1,4 @@
+
 """
 Projet Maths 1A ASE Mai 2024 
 
@@ -24,15 +25,18 @@ h = (xf-x0)/N    #Le pas d'étude
 
 # L'erreur commise est en °(h**2)
 
-# La suite de solution discrétisé à °(h**2) prés: 
+# La suite de solution (y) discrétisé de (E) à °(h**2) prés: 
 
+x = np.zeros(N) # L'abscisse de la discretisation 
 y = np.zeros(N)
-x = np.zeros(N)
-y[0] = y0
-x[0] = x0
-
 Solution_Theorique = np.zeros(N)
+
+x[0] = x0
+y[0] = y0
 Solution_Theorique[0] = y0
+
+
+
 
 for i in range (0,N-1):
     x[i+1] = x[i] + h
