@@ -20,7 +20,7 @@ y0 =20
 
 [x0,xf] = [0,10] #Interval d'étude
 N = 1000         #Discretisation
-h = (xf-x0)/N    #Pas d'étude
+h = (xf-x0)/N    #Le pas d'étude
 
 # L'erreur commise est en °(h**2)
 
@@ -31,9 +31,13 @@ x = np.zeros(N)
 y[0] = y0
 x[0] = x0
 
+Solution_Theorique = np.zeros(N)
+Solution_Theorique[0] = y0
+
 for i in range (0,N-1):
     x[i+1] = x[i] + h
     y[i+1] = (1-h*k)*y[i]  # y(x[i+1]) = y(x[i]) +h*F(y(x[i]),x[i])
+    Solution_Theorique[i+1]= y0*np.exp(-k*x[i+1])
 
 plt.close()
 plt.figure(1)
@@ -41,4 +45,6 @@ plt.title("dy+"+str(k)+"*y=0")
 plt.xlabel("x")
 plt.ylabel("y")
 plt.plot(x,y)
+plt.plot(x,Solution_Theorique)
+plt.legend(["Solution avec Euler d'ordre 1","Solution Théorique"])
 plt.show()

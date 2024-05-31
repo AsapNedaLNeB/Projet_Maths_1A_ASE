@@ -22,7 +22,7 @@ dTheta0 = 5 #rad/s
 
 [t0,tf] = [0,100] #Interval d'étude
 N = 1000         #Discretisation
-h = (tf-t0)/N    #Pas d'étude
+h = (tf-t0)/N    #Le pas d'étude
 
 # L'erreur commise est en °(h**2)
 
