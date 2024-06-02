@@ -1,15 +1,8 @@
-this is the beginning of the world ....
+Sauzay Erwan
+Pierre Peaupardin 
+1A ASE 2024
 
+Projet Maths : 
+Résolution d'équations différentielles d'ordre 1 et 2 avec la méthode d'Euler et la méthode  de Runge Kutta d'ordre 4 
 
-
-and this is the end....
-
-
-Je suis l'alpha et l'omega de l'univers !
-
-c'est intense !! 
- c'est une reel revelation pour moi 
- plus que le tacos 3 viandes 
-
-ok world 
-
+Bibliothèques Numpy et mathplotlib.pyplot sont utilisés

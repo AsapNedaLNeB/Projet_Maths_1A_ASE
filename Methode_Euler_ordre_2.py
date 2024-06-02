@@ -21,7 +21,7 @@ dTheta0 = 0.5 #rad/s
 
 # Paramétres d'étude : 
 [t0,tf] = [0,15] #Interval d'étude en seconde
-N = 1000000          #Discretisation
+N = 100000        #Discretisation
 h = (tf-t0)/N     #Le pas d'étude
 
 
@@ -42,10 +42,6 @@ dTheta_Theorique[0] = dTheta0
 
 # Generation des points
 for i in range (0,N-1):
-#    if Theta[i]>np.pi:
-#       Theta[i] = Theta[i] - np.pi
-#    elif Theta[i]<0 :
-#        Theta[i] = Theta[i] + np.pi
 
     t[i+1] = t[i] + h
     Theta[i+1] = Theta[i] +h*dTheta[i]
@@ -62,8 +58,8 @@ for i in range (1,N):
 #Presence d'un déphasage qui va décupler l'erreur si l'interval de temps est grand
 erreur_moyenne_position = erreur_moyenne_position/N
 erreur_moyenne_vitesse = erreur_moyenne_vitesse/N
-print("erreur_moyenne_position: ",erreur_moyenne_position,"sur",tf-t0,"s")
-print("erreur_moyenne_vitesse : ",erreur_moyenne_vitesse,"sur",tf-t0,"s" )
+print("erreur_moyenne_position: ",erreur_moyenne_position,"sur",tf-t0,"s avec g="+str(g)+", l="+str(l)+"m, theta0= "+str(Theta0)+"rad , dTheta0="+str(dTheta0)+"rad/s et N="+str(N))
+print("erreur_moyenne_vitesse : ",erreur_moyenne_vitesse,"sur",tf-t0,"s avec g="+str(g)+", l="+str(l)+"m, theta0= "+str(Theta0)+"rad , dTheta0="+str(dTheta0)+"rad/s et N="+str(N))
 #Erreur déduite pas tres exploitable 
 
 # Affichage

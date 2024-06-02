@@ -18,8 +18,8 @@ k = 2
 y0 =20
 
 # Paramétres d'étude : 
-[x0,xf] = [0,10] #Interval d'étude
-N = 1000         #Discretisation
+[x0,xf] = [0,15] #Interval d'étude
+N = 100        #Discretisation
 h = (xf-x0)/N    #Le pas d'étude
 
 
@@ -38,11 +38,17 @@ for i in range (0,N-1):
     y[i+1] = (1-h*k)*y[i]  # y(x[i+1]) = y(x[i]) +h*F(y(x[i]),x[i])
     Solution_Theorique[i+1]= y0*np.exp(-k*x[i+1])
 
+# Calcul erreur : 
+for i in range (1,N): 
+    erreur_moyenne= abs (y[i]- Solution_Theorique[i])
+
+erreur_moyenne = erreur_moyenne/N
+print("erreur_moyenne=",erreur_moyenne,"sur [",x0,":",xf,"] pour k=",str(k),"et y0="+str(y0)+" et N="+str(N)) 
 
 # Affichage :
 plt.close()
 plt.figure(1)
-plt.title("dy+"+str(k)+"*y=0")
+plt.title("dy+"+str(k)+"*y=0    pour y0 ="+str(y0))
 plt.xlabel("x")
 plt.ylabel("y")
 plt.plot(x,y)
