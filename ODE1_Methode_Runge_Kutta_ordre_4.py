@@ -15,14 +15,14 @@ y0 = const_y0 # valeur initiale pour le calcul
 #choix du pas de calcul :
 dt = 0.02 # secondes
 
-temps = [float(i) *dt for i in range(0, 1501)]
+temps = [float(i) *dt for i in range(0, 501)]
 liste_y = [y0]
 
 # implémentation de la solution théorique
 Solution_Theorique = [y0]
 
 # calcul des k :
-for ii in range(1500):
+for ii in range(500):
     k1 = -var_K*y0 
     k2 = -var_K*(k1/2)*dt
     k3 = -var_K*(k2/2)*dt
